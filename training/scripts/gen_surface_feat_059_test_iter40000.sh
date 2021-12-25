@@ -1,0 +1,34 @@
+CUDA_VISIBLE_DEVICES=0 python generate_images.py \
+ --name surface_feat_059 \
+ --results_dir results_test \
+ --dataset_mode blender \
+ --label_nc 15 \
+ --semantic_nc 16 \
+ --gpu_ids 0 \
+ --batch_size 8 \
+ --label_dir blender_set_008_test_image/labels_blender \
+ --coordinate_image_dir blender_set_008_test_image/coordinate_images \
+ --pseudo_image_dir blender_set_008_test_image/labels_ade20k \
+ --pseudo_label_dir blender_set_008_test_image/labels_ade20k \
+ --dataroot blender_set_008 \
+ --real_image_dir ade20k_indoor_size256/images \
+ --real_label_dir ade20k_indoor_size256/labels_blender \
+ --no_flip \
+ --no_EMA \
+ --pretrained_oasis_checkpoints_dir ./checkpoints \
+ --model surface_feat \
+ --init_type none \
+ --surface_feat_model_convblock_type None \
+ --mlp_hdim 740 \
+ --channels_D 3 64 64 128 128 256 512 \
+ --z_mapping_type mapping_net \
+ --z_mapping_dim 256 \
+ --pos_encoding_model nerf \
+ --pos_encoding_num_freq 4 \
+ --coordinate_embedding_model none \
+ --coordinate_embedding_dim -1 \
+ --ckpt_iter 40000 \
+ --use_fixed_z_vec \
+ --num_workers 4
+
+
